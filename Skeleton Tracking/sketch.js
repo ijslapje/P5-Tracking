@@ -3,7 +3,7 @@ let pose;
 let skeleton;
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(windowWidth, windowHeight);
   video = createCapture(VIDEO);
   video.hide();
   const poseNet = ml5.poseNet(video, modelLoaded);
@@ -25,7 +25,9 @@ function modelLoaded() {
 
 
 function draw() {
-  background(0);
+  translate(video.width, 0);
+  scale(-1,1);
+  image(video,0,0, video.width, video.height);
 
   if (pose) {
     let eyeR = pose.rightEye;
