@@ -1,0 +1,1 @@
+var raster1 = new Raster('myCanvas')
