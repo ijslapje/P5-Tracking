@@ -1,12 +1,10 @@
 html,
 body {
     height: 100%;
-    display: flex;
-
 }
 
 /* Scale canvas with resize attribute to full size */
 canvas[resize] {
-    width: 70%;
+    width: 100%;
     height: 100%;
 }
