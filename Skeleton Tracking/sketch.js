@@ -25,9 +25,10 @@ function modelLoaded() {
 
 
 function draw() {
-  translate(video.width, 0);
-  scale(-1,1);
-  image(video,0,0, video.width, video.height);
+  // translate(video.width, 0);
+  // scale(-1,1);
+  // image(video,0,0, video.width, video.height);
+  background(0);
 
   if (pose) {
     let eyeR = pose.rightEye;
