@@ -2,7 +2,7 @@ import { pose } from './getJoints.js';
 
 var path;
 var canvas;
-var start;
+//var start;
 var test = 200;
 var rectangle;
 

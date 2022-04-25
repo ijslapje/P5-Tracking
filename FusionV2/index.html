@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <body>
+    <!-- Load TensorFlow.js -->
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <!-- Load Posenet -->
+    <script src="https://unpkg.com/@tensorflow-models/posenet">
+    </script>
+    <script type="text/javascript">
+      posenet.load().then(function(net) {
+        // posenet model loaded
+        console.log(net);
+      });
+    </script>
+  </body>
+</html>
