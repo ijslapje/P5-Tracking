@@ -25,8 +25,8 @@ window.onload = function () {
 
 		paper.view.onFrame = function(event) {
 
+			//Elke frame logt hij dit
 			console.log(test)
-			// On each frame, rotate the path by 3 degrees:
 			test = test+2;
 			//rectangle.x = test;
 
