@@ -123,6 +123,8 @@
    }
    
    ctx.putImageData(imageData, 0, 0);
+
+   //console.log(imageData);
  }
  
  
@@ -166,6 +168,9 @@
      model.segmentPersonParts(videoRenderCanvas, segmentationProperties).then(function(segmentation) {
        processSegmentation(webcamCanvas, segmentation);
        previousSegmentationComplete = true;
+
+       //GET KEYPOINTS BODY
+       console.log(segmentation.allPoses[0].keypoints);
      });
    }
  
