@@ -27,15 +27,9 @@
     font-family: helvetica, arial, sans-serif;
     margin: 2em;
     color: #3D3D3D;
-  }
-  
-  h1 {
-    font-style: italic;
-    color: #FF6F00;
-  }
-  
-  h2 {
-    clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   em {
@@ -46,15 +40,7 @@
     clear: both;
     display: block;
   }
-  
-  section {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-  }
-  
-  header, footer {
-    clear: both;
-  }
+
   
   button {
     z-index: 1000;
@@ -76,11 +62,10 @@
   
   .webcam {
     position: relative;
+
   }
   
   .webcam, .classifyOnClick {
-    position: relative;
-    float: left;
     width: 48%;
     margin: 2% 1%;
     cursor: pointer;
@@ -94,6 +79,10 @@
     border: 1px dashed rgba(255, 255, 255, 0.7);
     z-index: 2;
     font-size: 12px;
+  }
+
+  video, canvas{
+    width: 100%;
   }
   
   .highlighter {
