@@ -34,86 +34,14 @@ function getJoints() {
     };
     
     
-    //  // This array will hold the colours we wish to use to highlight different body parts we find.
-    //  // RGBA (Red, Green, Blue, and Alpha (transparency) channels can be specified).
-    //  const colourMap = [];
-    
-    //  // Left_face
-    //  colourMap.push({r: 244, g: 67, b: 54, a: 255});
-    //  // Right_face
-    //  colourMap.push({r: 183, g: 28, b: 28, a: 255});
-    //  // left_upper_arm_front
-    //  colourMap.push({r: 233, g: 30, b: 99, a: 255});
-    //  // left_upper_arm_back  
-    //  colourMap.push({r: 136, g: 14, b: 79, a: 255});
-    //  // right_upper_arm_front
-    //  colourMap.push({r: 233, g: 30, b: 99, a: 255});
-    //  // 	right_upper_arm_back
-    //  colourMap.push({r: 136, g: 14, b: 79, a: 255});
-    //  // 	left_lower_arm_front
-    //  colourMap.push({r: 233, g: 30, b: 99, a: 255});
-    //  // 	left_lower_arm_back
-    //  colourMap.push({r: 136, g: 14, b: 79, a: 255});
-    //  // right_lower_arm_front
-    //  colourMap.push({r: 233, g: 30, b: 99, a: 255});
-    //  // right_lower_arm_back
-    //  colourMap.push({r: 136, g: 14, b: 79, a: 255});
-    //  // left_hand 
-    //  colourMap.push({r: 156, g: 39, b: 176, a: 255});
-    //  // right_hand
-    //  colourMap.push({r: 156, g: 39, b: 176, a: 255});
-    //  // torso_front
-    //  colourMap.push({r: 63, g: 81, b: 181, a: 255}); 
-    //  // torso_back 
-    //  colourMap.push({r: 26, g: 35, b: 126, a: 255});
-    //  // left_upper_leg_front
-    //  colourMap.push({r: 33, g: 150, b: 243, a: 255});
-    //  // left_upper_leg_back
-    //  colourMap.push({r: 13, g: 71, b: 161, a: 255});
-    //  // right_upper_leg_front
-    //  colourMap.push({r: 33, g: 150, b: 243, a: 255});
-    //  // right_upper_leg_back
-    //  colourMap.push({r: 13, g: 71, b: 161, a: 255});
-    //  // left_lower_leg_front
-    //  colourMap.push({r: 0, g: 188, b: 212, a: 255});
-    //  // left_lower_leg_back
-    //  colourMap.push({r: 0, g: 96, b: 100, a: 255});
-    //  // right_lower_leg_front
-    //  colourMap.push({r: 0, g: 188, b: 212, a: 255});
-    //  // right_lower_leg_back
-    //  colourMap.push({r: 0, g: 188, b: 212, a: 255});
-    //  // left_feet
-    //  colourMap.push({r: 255, g: 193, b: 7, a: 255});
-    //  // right_feet
-    //  colourMap.push({r: 255, g: 193, b: 7, a: 255});
-    
-    
     // A function to render returned segmentation data to a given canvas context.
     function processSegmentation(canvas, segmentation) {
     var ctx = canvas.getContext('2d');
     
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    //    var data = imageData.data;
-    
-    //    let n = 0;
-    //    for (let i = 0; i < data.length; i += 4) {
-    //      if (segmentation.data[n] !== -1) {
-    //        data[i] = colourMap[segmentation.data[n]].r;     // red
-    //        data[i + 1] = colourMap[segmentation.data[n]].g; // green
-    //        data[i + 2] = colourMap[segmentation.data[n]].b; // blue
-    //        data[i + 3] = colourMap[segmentation.data[n]].a; // alpha
-    //      } else {
-    //        data[i] = 0;    
-    //        data[i + 1] = 0;
-    //        data[i + 2] = 0;
-    //        data[i + 3] = 0;
-    //      }
-    //      n++;
-    //    }
     
     ctx.putImageData(imageData, 0, 0);
     
-    //console.log(imageData);
     }
     
     
@@ -227,6 +155,8 @@ function getJoints() {
     }
 }
 
+
+//Gebruik data om Facepoint te maken
 function sendData(x, y){
     console.log(x,y);
     facePoint.x = x;
