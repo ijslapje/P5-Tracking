@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Jason Mayes">
+    <script type="text/javascript" src="../PaperJS/node_modules/paper/dist/paper-full.js"></script>
+    <script type="text/paperscript" src="paperScript.js" canvas="myCanvas"></script>
 
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -14,6 +15,9 @@
       <div id="liveView" class="webcam">
         <button id="webcamButton">Enable Webcam</button>
         <video id="webcam" autoplay></video>
+      </div>
+      <div class="paper">
+        <canvas id="myCanvas" resize></canvas>
       </div>
     </section>
     
@@ -25,6 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0"></script>
     
     <!-- Import the page's JavaScript to do some stuff -->
-    <script src="readVid.js" defer></script>
+    <!-- <script src="readVid.js" defer></script> -->
   </body>
 </html>
