@@ -1,18 +1,14 @@
-var mousePoint = view.center;
+var facePoint = view.center;
 var amount = 25;
 var colors = ['orange', 'white', 'cyan', 'white'];
 
 for (var i = 0; i < amount; i++) {
     var rect = new Rectangle([0, 0], [25, 25]);
-    rect.center = mousePoint;
+    rect.center = facePoint;
     var path = new Path.Rectangle(rect, 6);
     path.fillColor = colors[i % 4];
     var scale = (1 - i / amount) * 20;
     path.scale(scale);
-}
-
-function onMouseMove(event) {
-    mousePoint = event.point;
 }
 
 function getJoints() {
@@ -163,9 +159,10 @@ function getJoints() {
                 previousSegmentationComplete = true;
     
                 //GET KEYPOINTS BODY
-                keypoint = segmentation.allPoses[0].keypoints[0].position.x;
+                keypointX = segmentation.allPoses[0].keypoints[0].position.x;
+                keypointY = segmentation.allPoses[0].keypoints[0].position.y;
                 
-                sendData(keypoint);
+                sendData(keypointX, keypointY);
     
             });
         }
@@ -175,11 +172,7 @@ function getJoints() {
     
     }
     
-    function sendData(data){
-        console.log(data);
-    }
-    
-    sendData();
+
     
     // Enable the live webcam view and start classification.
     function enableCam(event) {
@@ -234,11 +227,25 @@ function getJoints() {
     }
 }
 
+function sendData(x, y){
+    console.log(x,y);
+    facePoint.x = x;
+    facePoint.y = y;
+    //data = facePoint;
+}
+
+sendData();
+
+// function onMouseMove(event) {
+// 	facePoint = event.point;
+//     console.log(facePoint);
+// }
+
 var children = project.activeLayer.children;
 function onFrame(event) {
     for (var i = 0, l = children.length; i < l; i++) {
         var item = children[i];
-        var delta = (mousePoint - item.position) / (i + 5);
+        var delta = (facePoint - item.position) / (i + 5);
         item.rotate(Math.sin((event.count + i) / 10) * 7);
         if (delta.length > 0.1)
             item.position += delta;
@@ -246,4 +253,3 @@ function onFrame(event) {
 }
 
 getJoints();
-
