@@ -140,11 +140,9 @@
  });
  
  
- 
- 
 
  /********************************************************************
- // Demo 2: Continuously grab image from webcam stream and classify it.
+ // Demo: Continuously grab image from webcam stream and classify it.
  // Note: You must access the demo on https for this to work.
  ********************************************************************/
  
