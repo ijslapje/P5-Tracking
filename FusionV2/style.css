@@ -82,6 +82,7 @@
 
   video, canvas{
     width: 100%;
+    transform: scaleX(-1);
   }
   
   .highlighter {
