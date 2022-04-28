@@ -1,4 +1,7 @@
+
 var facePoint = view.center;
+var leftHand;
+var rightHand;
 var amount = 25;
 var colors = ['orange', 'white', 'cyan', 'white'];
 
@@ -87,10 +90,18 @@ function getJoints() {
                 previousSegmentationComplete = true;
     
                 //GET KEYPOINTS BODY
-                keypointX = segmentation.allPoses[0].keypoints[0].position.x;
-                keypointY = segmentation.allPoses[0].keypoints[0].position.y;
+                noseX = segmentation.allPoses[0].keypoints[0].position.x;
+                noseY = segmentation.allPoses[0].keypoints[0].position.y;
                 
-                sendData(keypointX, keypointY);
+                getDataFace(noseX, noseY);
+
+                handLx = segmentation.allPoses[0].keypoints[9].position.x;
+                handLy = segmentation.allPoses[0].keypoints[9].position.y;
+
+                handRx  = segmentation.allPoses[0].keypoints[10].position.x;
+                handRy  = segmentation.allPoses[0].keypoints[10].position.y;
+                
+                getDataHands(handLx, handLy, handRx, handRy);
     
             });
         }
@@ -157,19 +168,27 @@ function getJoints() {
 
 
 //Gebruik data om Facepoint te maken
-function sendData(x, y){
-    console.log(x,y);
+function getDataFace(x, y){
     facePoint.x = x;
     facePoint.y = y;
     //data = facePoint;
 }
 
-sendData();
+function getDataHands(xL,yL, xR, yR){
+    leftHand = [xL, yL];
+    rightHand = [xR, yR];
+
+    console.log(leftHand);
+}
+
+getDataFace();
+getDataHands();
 
 // function onMouseMove(event) {
 // 	facePoint = event.point;
 //     console.log(facePoint);
 // }
+
 
 var children = project.activeLayer.children;
 function onFrame(event) {
