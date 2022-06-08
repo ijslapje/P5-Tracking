@@ -1,4 +1,4 @@
-var facePoint;
+var facePoint = view.center;
 var leftHand;
 var rightHand;
 var amount = 25;
@@ -206,10 +206,10 @@ function onFrame(event) {
 getDataFace();
 getDataHands();
 
-// // function onMouseMove(event) {
-// // 	facePoint = event.point;
-// //     console.log(facePoint);
-// // }
+function onMouseMove(event) {
+	facePoint = event.point;
+    console.log(facePoint);
+}
 
 // var destination = Point.random() * view.size;
 
