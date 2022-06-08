@@ -1,25 +1,25 @@
 var facePoint;
 var leftHand;
 var rightHand;
-// var amount = 25;
-// var colors = ['orange', 'white', 'cyan', 'white'];
+var amount = 25;
+var colors = ['orange', 'white', 'cyan', 'white'];
 
-// for (var i = 0; i < amount; i++) {
-//     var rect = new Rectangle([0, 0], [25, 25]);
-//     rect.center = facePoint;
-//     var path = new Path.Rectangle(rect, 6);
-//     path.fillColor = colors[i % 4];
-//     var scale = (1 - i / amount) * 20;
-//     path.scale(scale);
-// }
+for (var i = 0; i < amount; i++) {
+    var rect = new Rectangle([0, 0], [25, 25]);
+    rect.center = facePoint;
+    var path = new Path.Rectangle(rect, 6);
+    path.fillColor = colors[i % 4];
+    var scale = (1 - i / amount) * 20;
+    path.scale(scale);
+}
 
-// Create a centered text item at the center of the view:
-var text = new PointText({
-	point: view.center,
-	justification: 'center',
-	fontSize: 30,
-	fillColor: 'black'
-});
+// // Create a centered text item at the center of the view:
+// var text = new PointText({
+// 	point: view.center,
+// 	justification: 'center',
+// 	fontSize: 30,
+// 	fillColor: 'black'
+// });
 
 
 function getJoints() {
@@ -177,13 +177,13 @@ function getJoints() {
 
 //Gebruik data om Facepoint te maken
 function getDataFace(x, y){
-    facePoint = [x-200, y-200];
+    // facePoint = [x-200, y-200];
     //data = facePoint;
 
-    // facePoint.x = x;
-    // facePoint.y = y;
+    facePoint.x = x;
+    facePoint.y = y;
 
-    console.log(facePoint[0]);
+    //console.log(facePoint[0]);
 }
 
 function getDataHands(xL,yL, xR, yR){
@@ -194,12 +194,12 @@ function getDataHands(xL,yL, xR, yR){
 }
 
 
-// function onFrame(event) {
-//     if(facePoint[0] != 'undefined'){
-//         myPath._segments[1]._point._x = facePoint[0];
-//         console.log(myPath._segments[1]._point._x);
-//     }
-// }
+function onFrame(event) {
+    if(facePoint[0] != 'undefined'){
+        myPath._segments[1]._point._x = facePoint.x;
+        console.log(myPath._segments[1]._point._x);
+    }
+}
 
 
 
@@ -211,43 +211,43 @@ getDataHands();
 // //     console.log(facePoint);
 // // }
 
-var destination = Point.random() * view.size;
+// var destination = Point.random() * view.size;
 
-function onFrame(event) {
-	// Each frame, move the path 1/30th of the difference in position
-	// between it and the destination.
-	
-	// The vector is the difference between the position of
-	// the text item and the destination point:
-	var vector = destination - text.position;
-	
-	// We add 1/30th of the vector to the position property
-	// of the text item, to move it in the direction of the
-	// destination point:
-	text.position += vector / 30;
-	
-	// Set the content of the text item to be the length of the vector.
-	// I.e. the distance it has to travel still:
-	text.content = Math.round(vector.length);
-	
-	// If the distance between the path and the destination is less
-	// than 5, we define a new random point in the view to move the
-	// path to:
-	if (vector.length < 5) {
-		destination = Point.random() * view.size;
-	}
-}
-
-
-// var children = project.activeLayer.children;
 // function onFrame(event) {
-//     for (var i = 0, l = children.length; i < l; i++) {
-//         var item = children[i];
-//         var delta = (view.center - item.position) / (i + 5);
-//         item.rotate(Math.sin((event.count + i) / 10) * 7);
-//         if (delta.length > 0.1)
-//             item.position += delta;
-//     }
+// 	// Each frame, move the path 1/30th of the difference in position
+// 	// between it and the destination.
+	
+// 	// The vector is the difference between the position of
+// 	// the text item and the destination point:
+// 	var vector = destination - text.position;
+	
+// 	// We add 1/30th of the vector to the position property
+// 	// of the text item, to move it in the direction of the
+// 	// destination point:
+// 	text.position += vector / 30;
+	
+// 	// Set the content of the text item to be the length of the vector.
+// 	// I.e. the distance it has to travel still:
+// 	text.content = Math.round(vector.length);
+	
+// 	// If the distance between the path and the destination is less
+// 	// than 5, we define a new random point in the view to move the
+// 	// path to:
+// 	if (vector.length < 5) {
+// 		destination = Point.random() * view.size;
+// 	}
 // }
+
+
+var children = project.activeLayer.children;
+function onFrame(event) {
+    for (var i = 0, l = children.length; i < l; i++) {
+        var item = children[i];
+        var delta = (view.center - item.position) / (i + 5);
+        item.rotate(Math.sin((event.count + i) / 10) * 7);
+        if (delta.length > 0.1)
+            item.position += delta;
+    }
+}
 
 getJoints();
